@@ -8,12 +8,17 @@
 
 <div> Здание1 = ${buildingOne?ifExists}</div>
 
+<div> Здание2 = ${buildingTwo?ifExists} </div>
+<i>${info?ifExists}</i>
+
 <form method="post" action="/gamePage">
     <div class="mt-3"></div>
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-<button type="submit" name="buttonClick" class="btn btn-secondary">получить инкам</button>
+    <button type="submit" name="buttonClick" class="btn btn-secondary">получить инкам</button>
     <div class="mt-3"></div>
-<button type="submit" name="buyBuildOne" class="btn btn-secondary">Купить здание1. Цена = ${buildingOnePrice?ifExists}</button>
+    <button type="submit" name="buyBuildOne" class="btn btn-secondary">Купить здание1. Цена = ${buildingOnePrice?ifExists}</button>
+
+    <div class="mt-3"></div>
+    <button type="submit" name="buyBuildTwo" class="btn btn-secondary">Купить здание2. Цена = ${buildingTwoPrice?ifExists}</button>
 </form>
-${message?ifExists}
 </@c.page>

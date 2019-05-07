@@ -14,9 +14,12 @@ public class GameStats {
     private int points;
     @Column(name = "Build1")
     private int buildingOne;
+    @Column(name = "Build2")
+    private int buildingTwo;
 
 
-    public GameStats(){}
+    public GameStats() {
+    }
 
     public int getPoints() {
         return points;
@@ -30,13 +33,18 @@ public class GameStats {
         return buildingOne;
     }
 
+    public int getBuildingTwo() {
+        return buildingTwo;
+    }
+
     public void setBuildingOne(int buildingOne) {
         this.buildingOne = buildingOne;
     }
 
-    public Long getId() {
-        return id;
+    public void setBuildingTwo(int buildingTwo) {
+        this.buildingTwo = buildingTwo;
     }
+    public Long getId() {return id;}
     public void setId(Long id) {
         this.id = id;
     }
