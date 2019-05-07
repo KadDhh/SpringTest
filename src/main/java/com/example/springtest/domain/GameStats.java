@@ -1,8 +1,5 @@
 package com.example.springtest.domain;
 
-import com.example.springtest.repos.GameStatsRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,12 +17,6 @@ public class GameStats {
 
 
     public GameStats(){}
-
-    public GameStats(int points, int buildingOne) {
-        this.id = (long)1;
-        this.points = points;
-        this.buildingOne = buildingOne;
-    }
 
     public int getPoints() {
         return points;
