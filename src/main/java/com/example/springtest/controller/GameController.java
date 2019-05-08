@@ -1,8 +1,10 @@
 package com.example.springtest.controller;
 
 import com.example.springtest.Logic.GameLogic;
+import com.example.springtest.domain.User;
 import com.example.springtest.repos.GameStatsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,10 +31,13 @@ public class GameController {
 
 
     @PostMapping(params = "buttonClick")
-    public String buttonClick(Map<String, Object> model) {
+    public String buttonClick
+            (Map<String, Object> model,
+            @AuthenticationPrincipal User user) {
         gameLogic.addPointsPerClick(model);
         gameLogic.save(gameStatsRepo);
         gameLogic.saveInfo(model, gameStatsRepo);
+        gameLogic.saveUserNameInfo(model, user);
         return "redirect:/gamePage";
     }
 
@@ -43,10 +48,24 @@ public class GameController {
         gameLogic.saveInfo(model, gameStatsRepo);
         return "redirect:/gamePage";
     }
+    @PostMapping(params = "buyBuildOne10")
+    public String buyBuildOne10(Map<String, Object> model) {
+        gameLogic.buyBuildingOne10(model, gameStatsRepo);
+        gameLogic.save(gameStatsRepo);
+        gameLogic.saveInfo(model, gameStatsRepo);
+        return "redirect:/gamePage";
+    }
 
     @PostMapping(params = "buyBuildTwo")
     public String buyBuildTwo(Map<String, Object> model) {
         gameLogic.buyBuildingTwo(model, gameStatsRepo);
+        gameLogic.save(gameStatsRepo);
+        gameLogic.saveInfo(model, gameStatsRepo);
+        return "redirect:/gamePage";
+    }
+    @PostMapping(params = "buyBuildTwo10")
+    public String buyBuildTwo10(Map<String, Object> model) {
+        gameLogic.buyBuildingTwo10(model, gameStatsRepo);
         gameLogic.save(gameStatsRepo);
         gameLogic.saveInfo(model, gameStatsRepo);
         return "redirect:/gamePage";

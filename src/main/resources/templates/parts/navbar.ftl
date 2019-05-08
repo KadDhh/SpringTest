@@ -29,6 +29,7 @@
             </#if>
         </ul>
 
+
         <#if isAuth>
         <div class="navbar-text mr-3" >${name}</div>
         <form action="/logout" method="post">

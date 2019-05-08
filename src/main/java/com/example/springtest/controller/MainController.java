@@ -52,7 +52,7 @@ public class MainController {
     @PreAuthorize("hasAuthority('USER')")
     @PostMapping(value = "/main", params = "auth")
     public String add(
-            @AuthenticationPrincipal User user,
+            @AuthenticationPrincipal User user, // передает текущего пользователя
             @RequestParam String text,
             @RequestParam("file") MultipartFile file) throws IOException {
         Message message = new Message(text, user);

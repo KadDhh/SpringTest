@@ -27,14 +27,15 @@ public class Message {
         } else return "<автора нет>";
     }
 
+    // Params \\
 
     private String text;
     private String filename;
-
     @ManyToOne(fetch = FetchType.EAGER) //messages to user
     @JoinColumn(name="user_id")
     private User author;
 
+     // GET SET \\
     public User getAuthor() {
         return author;
     }
@@ -66,5 +67,4 @@ public class Message {
     public void setFilename(String filename) {
         this.filename = filename;
     }
-
 }

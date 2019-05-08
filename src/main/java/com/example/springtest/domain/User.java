@@ -62,7 +62,9 @@ public class User implements UserDetails {
     }
 
     public String getUsername() {
-        return username;
+        if (username!= null && !username.isEmpty()){
+            return username;
+        } else return "Пользователь без имени";
     }
 
     public void setUsername(String username) {
