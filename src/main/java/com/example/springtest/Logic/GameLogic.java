@@ -173,17 +173,10 @@ public class GameLogic {
     // GET SET from BD \\
 
     public void loadFromSQL(GameStatsRepo loadRepo) {
-        if (loadRepo.findById((long)1).isPresent()) {
             GameStats gameStats1 = loadRepo.findById((long)1).orElse(new GameStats());
             gameStats.setPoints(gameStats1.getPoints());
             gameStats.setBuildingOne(gameStats1.getBuildingOne());
             gameStats.setBuildingTwo(gameStats1.getBuildingTwo());
-        }
-        else {
-            gameStats.setPoints(0);
-            gameStats.setBuildingOne(0);
-            gameStats.setBuildingTwo(0);
-        }
     }
 
     public Long getId() {

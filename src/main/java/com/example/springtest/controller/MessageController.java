@@ -16,7 +16,6 @@ public class MessageController {
     @Autowired
     private MessageRepoJPA messageRepoJPA;
 
-
     @GetMapping("/messageControl")
     public String MessageDeletePage()
     {
@@ -32,5 +31,10 @@ public class MessageController {
         model.put("message", "Успешно");
 
         return "messageControl";
+    }
+
+
+    private void errorNotification(Map model){
+        model.put("message", "Сообщение не найдено по айди");
     }
 }

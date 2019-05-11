@@ -37,9 +37,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
-        // Iterable<Message> messages = messageRepo.findAll();
 
-        // показ в обратном порядке
         Collection<Message> messageList = new ArrayList<>();
         messageList.addAll(messageRepoJPA.findAllByOrderByIdDesc());
 
