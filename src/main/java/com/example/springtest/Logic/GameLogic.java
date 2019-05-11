@@ -16,8 +16,6 @@ public class GameLogic {
     public GameLogic() {
     }
 
-    // --- LOGIC -- \\
-
     private int getBuilding1Price(GameStatsRepo loadRepo) {
         loadBuildingOneFromSQL(1, loadRepo);
         int building1Price = ((gameStats.getBuildingOne() + 1) * (3 + gameStats.getBuildingOne()) * 2);

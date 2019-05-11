@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
-@Entity // This tells SQL to make a table out of this class
+@Entity
 @Table(name = "usr")
 public class User implements UserDetails {
     @Id

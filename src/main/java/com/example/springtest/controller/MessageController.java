@@ -32,9 +32,4 @@ public class MessageController {
 
         return "messageControl";
     }
-
-
-    private void errorNotification(Map model){
-        model.put("message", "Сообщение не найдено по айди");
-    }
 }
