@@ -1,6 +1,6 @@
 package com.example.springtest.controller;
 
-import com.example.springtest.repos.MessageRepo;
+import com.example.springtest.repos.MessageRepoJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import java.util.Map;
 @PreAuthorize("hasAuthority('ADMIN')")
 public class MessageController {
     @Autowired
-    private MessageRepo messageRepo;
+    private MessageRepoJPA messageRepoJPA;
 
 
     @GetMapping("/messageControl")
@@ -28,7 +28,7 @@ public class MessageController {
     public String MessageDelete(@RequestParam ("messageId") Long messageId,
                                 Map<String, Object> model){
 
-        messageRepo.deleteById(messageId);
+        messageRepoJPA.deleteById(messageId);
         model.put("message", "Успешно");
 
         return "messageControl";
