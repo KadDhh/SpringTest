@@ -27,8 +27,11 @@ public class MessageController {
     public String MessageDelete(@RequestParam ("messageId") Long messageId,
                                 Map<String, Object> model){
 
-        messageRepoJPA.deleteById(messageId);
-        model.put("message", "Успешно");
+        if (messageRepoJPA.findById(messageId).isPresent()) {
+            messageRepoJPA.deleteById(messageId);
+            model.put("message", "Успешно");
+        }
+        else model.put("message", "сообщение не найдно");
 
         return "messageControl";
     }
