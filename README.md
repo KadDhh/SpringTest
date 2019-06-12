@@ -1,2 +1,2 @@
 # SpringTest
-A simple site with a messages feature and a little clicking coop game for everyone
+A simple site without JS with a messages feature and a little clicking coop game for everyone
